@@ -17,14 +17,14 @@
 
   var init = function (stsToken) {
     var ossUpload = new OssUpload({
-      bucket: '需要上传的 oss bucket',
+      bucket: 'dongda',
       // 根据你的 oss 实例所在地区选择填入
       // 杭州：http://oss-cn-hangzhou.aliyuncs.com
       // 北京：http://oss-cn-beijing.aliyuncs.com
       // 青岛：http://oss-cn-qingdao.aliyuncs.com
       // 深圳：http://oss-cn-shenzhen.aliyuncs.com
       // 香港：http://oss-cn-hongkong.aliyuncs.com
-      endpoint: 'http://oss-cn-hangzhou.aliyuncs.com',
+      endpoint: 'http://oss-cn-shenzhen.aliyuncs.com',
       // 如果文件大于 chunkSize 则分块上传, chunkSize 不能小于 100KB 即 102400
       chunkSize: 1048576,
       // 分块上传的并发数
@@ -32,8 +32,8 @@
       // 注意: 虽然使用 accessKeyId 和 secretAccessKey 可以进行上传, 但是存在泄露风险, 因此强烈建议使用下面的 STS token
       // 只有在确认不会出现泄露风险的情况下, 才使用 aliyunCredential
       aliyunCredential: {
-        "accessKeyId": "在阿里云OSS申请的 accessKeyId",
-        "secretAccessKey": "在阿里云OSS申请的 secretAccessKey"
+        "accessKeyId": "TmTqlGtq81aHyaLT",
+        "secretAccessKey": "svTblnIZbd24MYr15AEFucIhcDYLkj"
       },
       stsToken: stsToken
       // 这是一个 stsToken 的样例
@@ -64,7 +64,7 @@
               // 必传参数, 需要上传的文件对象
               file: files[i],
               // 必传参数, 文件上传到 oss 后的名称, 包含路径
-              key: 'oss/folder/file_key',
+              key: '1.jpg',
               // 上传失败后重试次数
               maxRetry: 3,
               // OSS支持4个 HTTP RFC2616(https://www.ietf.org/rfc/rfc2616.txt)协议规定的Header 字段：
